@@ -14,11 +14,11 @@ import java.util.Map;
  * @author Vladislavs Vasiljevs
  */
 public class databaseClass {
-     private static Map<String, Account> accounts = new HashMap<>();
-     private static Map<String, Customer> customers = new HashMap<>();
+     private static Map<Long, Account> accounts = new HashMap<>();
+     private static Map<Long, Customer> customers = new HashMap<>();
 
 
-    public static Map<String, Account> getAccounts() {
+    public static Map<Long, Account> getAccounts() {
         return accounts;
     }
     public static Map<Long, Customer> getCustomers() {
