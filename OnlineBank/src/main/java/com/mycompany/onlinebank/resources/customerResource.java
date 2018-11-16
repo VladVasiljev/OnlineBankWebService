@@ -27,7 +27,7 @@ public class customerResource {
    @Produces(MediaType.APPLICATION_JSON)
    public Response getCustomers(){
    
-       return 
+       return customerService.getCustomers();
    }
     
 }
