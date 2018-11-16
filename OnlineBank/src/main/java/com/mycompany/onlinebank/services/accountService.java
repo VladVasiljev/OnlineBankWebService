@@ -5,10 +5,21 @@
  */
 package com.mycompany.onlinebank.services;
 
+import com.mycompany.onlinebank.database.databaseClass;
+import com.mycompany.onlinebank.model.Account;
+import java.util.Map;
+
 /**
  *
  * @author Vladislavs Vasiljevs
  */
 public class accountService {
+    
+     private Map<String, Account> accounts = databaseClass.getAccounts();
+    
+    public accountService(){
+        accounts.put("1", new Account("First","Last","123BCD4","954385939",20.0));
+      
+    }
     
 }
