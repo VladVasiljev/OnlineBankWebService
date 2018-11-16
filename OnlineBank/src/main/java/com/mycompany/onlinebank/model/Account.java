@@ -14,16 +14,18 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement
 public class Account {
-    private String firstName,lastName,sortCode,accountNumber;
+    private String firstName,lastName,sortCode,accountNumber,accountType;
     private double currentBalance;
     private Date accountCreationDate;
 
-    public Account(String firstName, String lastName, String sortCode, String accountNumber, double currentBalance) {
+    public Account(String firstName, String lastName, String sortCode, String accountNumber,String accountType, double currentBalance) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.sortCode = sortCode;
         this.accountNumber = accountNumber;
+        this.accountType = accountType;
         this.currentBalance = currentBalance;
+        
         this.accountCreationDate = new Date();
     }
 
@@ -77,6 +79,16 @@ public class Account {
     public void setAccountCreationDate(Date accountCreationDate) {
         this.accountCreationDate = accountCreationDate;
     }
+
+    public String getAccountType() {
+        return accountType;
+    }
+
+    public void setAccountType(String accountType) {
+        this.accountType = accountType;
+    }
+    
+    
     
     
     
