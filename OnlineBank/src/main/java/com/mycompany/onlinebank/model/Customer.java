@@ -5,79 +5,65 @@
  */
 package com.mycompany.onlinebank.model;
 
-/**
- *
- * @author Paul
- */
+import java.util.List;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Customer {
-    private  Integer id;
-    private Integer pin;
-    private  String first_name;
-    private  String last_name;
-    private String address;
-    private String email;
+	
+	private int customerID;
+	private String name;
+	private String email;
+	private String address;
+        private String pin;
+	private List<Account> accounts;
+	
+	public Customer() {
+	}
+	
+	public Customer(int customerID, String name, String email, String city,String pin, List<Account> accounts) {
+		this.customerID = customerID;
+		this.name = name;
+		this.email = email;
+		this.address = city;
+                this.pin = pin;
+		
+		this.accounts = accounts;
+	}
 
-    public Customer(Integer id, Integer pin, String first_name, String last_name, String address, String email) {
-        this.id = id;
-        this.pin = pin;
-        this.first_name = first_name;
-        this.last_name = last_name;
-        this.address = address;
-        this.email = email;
-    }
 
-    public Customer() {
-    }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getPin() {
-        return pin;
-    }
-
-    public void setPin(Integer pin) {
-        this.pin = pin;
-    }
-
-    public String getFirst_name() {
-        return first_name;
-    }
-
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
-    }
-
-    public String getLast_name() {
-        return last_name;
-    }
-
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-    
-    
-   
+	public int getCustomerID() {
+		return customerID;
+	}
+	public void setCustomerID(int customerID) {
+		this.customerID = customerID;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	
+	public List<Account> getAccounts() {
+		return accounts;
+	}
+	public void setAccounts(List<Account> accounts) {
+		this.accounts = accounts;
+	}
+	
 
 }
