@@ -27,9 +27,16 @@ public class Customer {
 		this.email = email;
 		this.address = city;
                 this.pin = pin;
-		
 		this.accounts = accounts;
 	}
+
+    public String getPin() {
+        return pin;
+    }
+
+    public void setPin(String pin) {
+        this.pin = pin;
+    }
 
 
 
