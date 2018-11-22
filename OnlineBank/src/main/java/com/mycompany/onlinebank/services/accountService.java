@@ -5,21 +5,50 @@
  */
 package com.mycompany.onlinebank.services;
 
-import com.mycompany.onlinebank.database.databaseClass;
 import com.mycompany.onlinebank.model.Account;
-import java.util.Map;
+import com.mycompany.onlinebank.model.Customer;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author Vladislavs Vasiljevs
  */
 public class accountService {
+
+   // public static List<Customer> list = new ArrayList<>();
+    //public static List<Account> accounts = new ArrayList<>();
+    public static boolean init = true;
     
-     private Map<Long, Account> accounts = databaseClass.getAccounts();
+    CustomerService servie = new CustomerService();
     
-    public accountService(){
-//        accounts.put(1L, new Account("First","Last","123BCD4","954385939","Current Account",20.0));
-      
+    List<Customer> list = servie.getList();
+    List<Account> accounts = servie.getaccounts();
+
+    public accountService() {
+        if (init) {
+
+            init = false;
+        }
     }
-    
+
+    //Getting Accounts by ID
+    public Account getAccountsByID(int id) {
+        return accounts.get(id - 1);
+    }
+
+    public Customer getCustoemrByID(int id) {
+        return list.get(id - 1);
+    }
+
+    public Account getAccountsInCustomers(int CustomerID, int accountID) {
+        Account p = new Account();
+
+        for (Account q : getCustoemrByID(CustomerID).getAccounts()) {
+            if (q.getAccountID() == accountID) {
+                p = q;
+            }
+        }
+        return p;
+    }
 }

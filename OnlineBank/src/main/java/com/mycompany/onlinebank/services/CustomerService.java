@@ -14,6 +14,15 @@ public class CustomerService {
 	public static List<Customer> list = new ArrayList<>();
 	public static List<Account> accounts = new ArrayList<>();
         public static boolean init = true;
+        
+        public List<Customer> getCustomer(){
+        return list;
+    }
+        
+            public List<Account> getAccounts(){
+        return accounts;
+    }
+	
 	
     public CustomerService() {
     	if (init) {
@@ -46,6 +55,15 @@ public class CustomerService {
     	}
 
 	}
+    
+    
+      public List<Customer> getList() {
+       return list;
+   }
+      
+       public List<Account> getaccounts() {
+       return accounts;
+   }
     public List<Customer> getAllCustomers() {
     	return list;
     }
