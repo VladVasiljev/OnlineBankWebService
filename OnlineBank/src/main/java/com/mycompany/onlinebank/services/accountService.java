@@ -18,7 +18,7 @@ public class accountService {
      private Map<Long, Account> accounts = databaseClass.getAccounts();
     
     public accountService(){
-        accounts.put(1L, new Account("First","Last","123BCD4","954385939","Current Account",20.0));
+//        accounts.put(1L, new Account("First","Last","123BCD4","954385939","Current Account",20.0));
       
     }
     
