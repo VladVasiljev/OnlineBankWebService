@@ -43,23 +43,52 @@ public class accountService {
     public List<Account> getAllAccounts() {
         return accounts;
     }
-    
-     public Account addCurrentAccount(Account c){
-        c.setAccountID(list.size() + 1);
-        c.setAccountType("currentAccount");
-         Random rand = new Random();
+
+    //Default values set,adds them to Account object
+    public Account addCurrentAccount(Account c) {
+        c.setAccountID(accounts.size() + 1);
+        c.setAccountType("Current Account");
+        Random rand = new Random();
         int accountNumber = 100000000 + rand.nextInt(900000000);
         c.setAccountNum(accountNumber);
         c.setAccountBalance(0.0);
-	accounts.add(c);
-	System.out.println("201 - resource created with path: /candidates/" + String.valueOf(c.getAccountID()));
-	return c;
+        c.setSortCode("902121");
+        accounts.add(c);
+        //System.out.println("201 - resource created with path: /candidates/" + String.valueOf(c.getAccountID()));
+        return c;
+    }
+
+    //Default values set,adds them to Account object
+    public Account addSavingsAccount(Account s) {
+        s.setAccountID(accounts.size() + 1);
+        s.setAccountType("Savings Account");
+        Random rand = new Random();
+        int accountNumber = 100000000 + rand.nextInt(900000000);
+        s.setAccountNum(accountNumber);
+        s.setAccountBalance(0.0);
+        s.setSortCode("900121");
+        accounts.add(s);
+        //System.out.println("201 - resource created with path: /candidates/" + String.valueOf(s.getAccountID()));
+        return s;
+    }
+
+//Default values set,adds them to Account object
+    public Account addStudentAccount(Account stu) {
+        stu.setAccountID(accounts.size() + 1);
+        stu.setAccountType("Student Account");
+        Random rand = new Random();
+        int accountNumber = 100000000 + rand.nextInt(900000000);
+        stu.setAccountNum(accountNumber);
+        stu.setAccountBalance(0.0);
+        stu.setSortCode("900121");
+        accounts.add(stu);
+        //System.out.println("201 - resource created with path: /candidates/" + String.valueOf(stu.getAccountID()));
+        return stu;
     }
 
 //    public Customer getCustoemrByID(int id) {
 //        return list.get(id - 1);
 //    }
-
 //    public Account getAccountsInCustomers(int CustomerID, int accountID) {
 //        Account p = new Account();
 //

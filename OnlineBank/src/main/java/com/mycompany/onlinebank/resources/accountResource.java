@@ -34,7 +34,7 @@ public class accountResource {
     public Account getAccountsByID(@PathParam("accountID") int id) {
         return accountservice.getAccountsByID(id);
     }
-    
+
     //Getting All Accounts
     @GET
     @Produces({MediaType.APPLICATION_JSON})
@@ -42,14 +42,35 @@ public class accountResource {
         return accountservice.getAllAccounts();
     }
     
-    
+    //Creates a Current account for the customer
+    //Usage POST http://127.0.0.1:49000/api/account/createCurrentAccount
     @POST
     @Path("/createCurrentAccount")
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
-	public Account addCurrentAccount(Account c) {
-		return accountservice.addCurrentAccount(c);
-	}
+    public Account addCurrentAccount(Account c) {
+        return accountservice.addCurrentAccount(c);
+    }
+    
+    //Creates a Savings Account for the customer
+    //Usage POST http://127.0.0.1:49000/api/account/createSavingsAccount
+    @POST
+    @Path("/createSavingsAccount")
+    @Consumes({MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON})
+    public Account addSavingsAccount(Account s) {
+        return accountservice.addSavingsAccount(s);
+    }
+    
+    //Creates a Student Account for the customer
+    //Usage POST http://127.0.0.1:49000/api/account/createStudentAccount
+    @POST
+    @Path("/createStudentAccount")
+    @Consumes({MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON})
+    public Account addStudentAccount(Account stu) {
+        return accountservice.addSavingsAccount(stu);
+    }
     
     
 

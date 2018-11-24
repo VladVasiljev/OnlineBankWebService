@@ -71,6 +71,10 @@ public class Customer {
 	public void setAccounts(List<Account> accounts) {
 		this.accounts = accounts;
 	}
+
+    public void getCustomerID(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 	
 
 }

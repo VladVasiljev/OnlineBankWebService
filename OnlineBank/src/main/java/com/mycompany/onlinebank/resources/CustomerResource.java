@@ -11,6 +11,7 @@ import com.mycompany.onlinebank.services.CustomerService;
 import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -62,4 +63,19 @@ public class CustomerResource {
         }
         return CustomerService.getAllCustomers();
     }
+    
+    
+    //Creates a Current account for the customer
+    //Usage POST http://127.0.0.1:49000/api/customer/createCustomerAccoun
+    @POST
+    @Path("/createCustomerAccount")
+    @Consumes({MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON})
+    public Customer addCurrentAccount(Customer c) {
+        return CustomerService.addCustomerAccount(c);
+    }
+    
+    
+    
+    
 }

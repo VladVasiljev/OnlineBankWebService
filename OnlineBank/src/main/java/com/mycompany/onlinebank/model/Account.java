@@ -14,20 +14,30 @@ public class Account {
 	private String accountType;
         private int accountNum;
         private double accountBalance;
+        private String sortCode;
         
 
 	public Account() {
 	}
 
-	public Account(int accountID, String accountType, int accountNum, double accountBalance) {
+	public Account(int accountID, String accountType, int accountNum, double accountBalance,String sortCode) {
 		this.accountID = accountID;
 		this.accountType = accountType;
                 this.accountNum = accountNum;
                 this.accountBalance = accountBalance;
+                this.sortCode = sortCode;
 	}
 
     public int getAccountNum() {
         return accountNum;
+    }
+
+    public String getSortCode() {
+        return sortCode;
+    }
+
+    public void setSortCode(String sortCode) {
+        this.sortCode = sortCode;
     }
 
     public double getAccountBalance() {
