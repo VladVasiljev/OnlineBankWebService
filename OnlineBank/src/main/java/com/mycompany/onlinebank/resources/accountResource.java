@@ -7,8 +7,10 @@ package com.mycompany.onlinebank.resources;
 
 import com.mycompany.onlinebank.services.accountService;
 import com.mycompany.onlinebank.model.Account;
+import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -18,30 +20,47 @@ import javax.ws.rs.core.MediaType;
  *
  * @author Vladislavs Vasiljevs
  */
-@Path("/Accounts")
+@Path("/account")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class accountResource {
-   accountService accountservice = new accountService();
-    
+
+    accountService accountservice = new accountService();
+
     //Getting Accounts by ID
-   @GET
-   @Path("/{accountID}")
-   public Account getAccountsByID(@PathParam("accountID") int id) {
-       return accountservice.getAccountsByID(id);
-   }
+    @GET
+    @Path("/{accountID}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public Account getAccountsByID(@PathParam("accountID") int id) {
+        return accountservice.getAccountsByID(id);
+    }
     
+    //Getting All Accounts
+    @GET
+    @Produces({MediaType.APPLICATION_JSON})
+    public List<Account> getAllAccounts() {
+        return accountservice.getAllAccounts();
+    }
+    
+    
+    @POST
+    @Path("/createCurrentAccount")
+    @Consumes({MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON})
+	public Account addCurrentAccount(Account c) {
+		return accountservice.addCurrentAccount(c);
+	}
+    
+    
+
 //   @GET
 //   @Path("/Customer/{customerID}")
 //   public Customer getCustomerByID(@PathParam("customerID") int id) {
 //       return accountservice.getCustoemrByID(id);
 //   }
-   
-   
-   @GET
-   @Path("/{customerID}/Account/{accountID}")
-   public Account getAccountID(@PathParam("customerID") int id, @PathParam("accountID") int accountID) {
-       return accountservice.getAccountsInCustomers(id, accountID);
-   }
-   
+//   @GET
+//   @Path("/{customerID}/Account/{accountID}")
+//   public Account getAccountID(@PathParam("customerID") int id, @PathParam("accountID") int accountID) {
+//       return accountservice.getAccountsInCustomers(id, accountID);
+//   }
 }

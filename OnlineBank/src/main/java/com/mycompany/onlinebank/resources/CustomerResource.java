@@ -18,9 +18,9 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.QueryParam;
 
 /**
-*
-* @author Paul
-*/
+ *
+ * @author Paul
+ */
 @Path("/customers")
 //@Consumes({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
 //@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
@@ -28,53 +28,38 @@ import javax.ws.rs.QueryParam;
 @Produces(MediaType.APPLICATION_JSON)
 public class CustomerResource {
 
-	CustomerService CustomerService = new CustomerService();
+    CustomerService CustomerService = new CustomerService();
 
-	
+    @GET
+    @Path("/{customerID}")
+    public Customer getCustomer(@PathParam("customerID") int id) {
+        return CustomerService.getCustomer(id);
+    }
 
-	@GET
-	@Path("/{customerID}")
-	public Customer getCustomer(@PathParam("customerID") int id) {
-		return CustomerService.getCustomer(id);
-	}
-        
+    @GET
+    @Path("/{customerID}/accounts/{accountID}")
+    public Account getCustomer(@PathParam("customerID") int id, @PathParam("accountID") int accountID) {
+        return CustomerService.getAccountInCustomer(id, accountID);
+    }
 
-
-	@GET
-	@Path("/{customerID}/accounts/{accountID}")
-	public Account getCustomer(@PathParam("customerID") int id, @PathParam("accountID") int accountID) {
-		return CustomerService.getAccountInCustomer(id, accountID);
-	}
-
-	
 //	@POST
 //	public Customer postCustomer(Customer c) {
 //		return CustomerService.createCustomer(c);
 //	}
+    @GET
 
-	
-	@GET
-       
-	public List<Customer> getFilteredCustomers(
-                        @QueryParam("city") String city, 
-			@QueryParam("name") String name, 
-			@QueryParam("email") String email,
-			@QueryParam("start") int start,
-			@QueryParam("size") int size) {
-		if ((city != null) || (name != null) || (email != null)) {
-			return CustomerService.getSearchCustomers(email, city, name);
-		}
-		if (start >= 1 && size > 0 ) {
-			return CustomerService.getAllCustomersPaginated(start, size);
-		}
-		return CustomerService.getAllCustomers();
-	} 
+    public List<Customer> getFilteredCustomers(
+            @QueryParam("city") String city,
+            @QueryParam("name") String name,
+            @QueryParam("email") String email,
+            @QueryParam("start") int start,
+            @QueryParam("size") int size) {
+        if ((city != null) || (name != null) || (email != null)) {
+            return CustomerService.getSearchCustomers(email, city, name);
+        }
+        if (start >= 1 && size > 0) {
+            return CustomerService.getAllCustomersPaginated(start, size);
+        }
+        return CustomerService.getAllCustomers();
+    }
 }
-    
-    
-    
-    
-   
-
-    
-

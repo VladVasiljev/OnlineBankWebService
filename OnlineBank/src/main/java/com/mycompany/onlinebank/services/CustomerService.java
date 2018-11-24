@@ -30,28 +30,28 @@ public class CustomerService {
     		
 
     		Customer c1 = new Customer(1,"Paul Kinsella","pkinsella@gmail.com", "Dublin","12345", accounts  );
-    		Customer c2 = new Customer(2,"Vlad Vladerson","vlad@gmail.com", "Dublin","12345",  accounts );        
-    		Customer c3 = new Customer(3,"Liam Delaney","liam@gmail.com", "Dublin","12345", accounts );
-    		Customer c4 = new Customer(4,"Patricia Dunne","dun@gmail.com", "Cork", "12345", accounts );
-    		Customer c5 = new Customer(5,"John Barnes","john@gmail.com", "Galway","12345",  accounts );
-    		Customer c6 = new Customer(6,"John Lyod","lyod@gmail.com", "Kerry", "12345", accounts );
+//    		Customer c2 = new Customer(2,"Vlad Vladerson","vlad@gmail.com", "Dublin","12345",  accounts );        
+//    		Customer c3 = new Customer(3,"Liam Delaney","liam@gmail.com", "Dublin","12345", accounts );
+//    		Customer c4 = new Customer(4,"Patricia Dunne","dun@gmail.com", "Cork", "12345", accounts );
+//    		Customer c5 = new Customer(5,"John Barnes","john@gmail.com", "Galway","12345",  accounts );
+//    		Customer c6 = new Customer(6,"John Lyod","lyod@gmail.com", "Kerry", "12345", accounts );
 
     		list.add(c1);
-    		list.add(c2);
-    		list.add(c3);
-    		list.add(c4);
-    		list.add(c5);
-    		list.add(c6);
+//    		list.add(c2);
+//    		list.add(c3);
+//    		list.add(c4);
+//    		list.add(c5);
+//    		list.add(c6);
     		
                 
-                Account a1 = new Account (1, "Personal Account" ,12345, 1.3200);
-    		Account a2 = new Account (2, "Current Account" ,678910, 2.4310);
-    		Account a3 = new Account (3, "Joint Account", 111211, 3.5461);
+                Account a1 = new Account (1, "Saving Accounts" ,12345, 1.3200);
+//    		Account a2 = new Account (2, "Current Account" ,678910, 2.4310);
+//    		Account a3 = new Account (3, "Joint Account", 111211, 3.5461);
     		
 
     		accounts.add(a1);
-    		accounts.add(a2);
-    		accounts.add(a3);
+//    		accounts.add(a2);
+//    		accounts.add(a3);
                 init = false;
     	}
 
