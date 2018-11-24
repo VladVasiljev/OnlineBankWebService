@@ -42,7 +42,7 @@ public class CustomerService {
     		list.add(c4);
     		list.add(c5);
     		list.add(c6);
-    		init = false;
+    		
                 
                 Account a1 = new Account (1, "Personal Account" ,12345, 1.3200);
     		Account a2 = new Account (2, "Current Account" ,678910, 2.4310);
@@ -52,6 +52,7 @@ public class CustomerService {
     		accounts.add(a1);
     		accounts.add(a2);
     		accounts.add(a3);
+                init = false;
     	}
 
 	}
