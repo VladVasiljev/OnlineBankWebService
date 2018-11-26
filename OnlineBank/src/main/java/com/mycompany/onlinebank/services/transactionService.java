@@ -7,6 +7,7 @@ package com.mycompany.onlinebank.services;
 
 import com.mycompany.onlinebank.model.Account;
 import com.mycompany.onlinebank.model.Transaction;
+import static com.mycompany.onlinebank.services.transactionService.transaction;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,7 +38,7 @@ public class transactionService {
         init = false;
          }
          Account account = new Account();
-          Transaction t1 = new Transaction( "Credit", "Re-Payed Loan", 10.20) {};
+         Transaction t1 = new Transaction( "Credit", "Re-Payed Loan", 10.20) {};
          if(account.getAccountType().equals("Current Account"))
              transaction.add(t1);
          
@@ -46,6 +47,8 @@ public class transactionService {
              transaction.add(t1);
         //return t;
     }
+    
+     
 }
 
 
