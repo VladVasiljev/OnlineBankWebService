@@ -15,7 +15,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Transaction {
     private String transactionType;
-    private Date date = new Date();
+    //private Date date = new Date();
     private String desciption;
     private double postTransactionBallance;
 
@@ -26,6 +26,7 @@ public class Transaction {
         this.transactionType = transactionType;
         this.desciption = desciption;
         this.postTransactionBallance = postTransactionBallance;
+       // this.date = new Date();
     }
 
     public String getTransactionType() {
@@ -36,13 +37,13 @@ public class Transaction {
         this.transactionType = transactionType;
     }
 
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
+//    public Date getDate() {
+//        return date;
+//    }
+//
+//    public void setDate(Date date) {
+//        this.date = date;
+//    }
 
     public String getDesciption() {
         return desciption;

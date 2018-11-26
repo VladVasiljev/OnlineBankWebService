@@ -28,8 +28,8 @@ public class CustomerService {
     public CustomerService() {
         if (init) {
 
-           // Customer c1 = new Customer(1, "Paul Kinsella", "pkinsella@gmail.com", "Dublin", "12345", accounts);
-  		//Customer c2 = new Customer(2,"Vlad Vladerson","vlad@gmail.com", "Dublin","12345",  accounts );        
+//            Customer c1 = new Customer(1, "Paul Kinsella", "pkinsella@gmail.com", "Dublin", "12345", accounts);
+//  		Customer c2 = new Customer(2,"Vlad Vladerson","vlad@gmail.com", "Dublin","12345",  accounts );        
 //    		Customer c3 = new Customer(3,"Liam Delaney","liam@gmail.com", "Dublin","12345", accounts );
 //    		Customer c4 = new Customer(4,"Patricia Dunne","dun@gmail.com", "Cork", "12345", accounts );
 //    		Customer c5 = new Customer(5,"John Barnes","john@gmail.com", "Galway","12345",  accounts );
