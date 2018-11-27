@@ -7,9 +7,11 @@ package com.mycompany.onlinebank.services;
 
 import com.mycompany.onlinebank.model.Account;
 import com.mycompany.onlinebank.model.Customer;
+import com.mycompany.onlinebank.model.Transaction;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import javax.ws.rs.PathParam;
 
 /**
  *
@@ -22,10 +24,12 @@ public class accountService {
     public static boolean init = true;
 
     CustomerService service = new CustomerService();
+    transactionService transaction = new transactionService();
     // accountService accountservice = new accountService();
 
     List<Customer> list = service.getList();
     List<Account> accounts = service.getaccounts();
+    List<Transaction> transactions = transaction.getTransactions();
 
     public accountService() {
         if (init) {
@@ -53,6 +57,7 @@ public class accountService {
         c.setAccountNum(accountNumber);
         c.setAccountBalance(0.0);
         c.setSortCode("902121");
+        c.setTransaction(transactions);
         accounts.add(c);
         //System.out.println("201 - resource created with path: /candidates/" + String.valueOf(c.getAccountID()));
         return c;
@@ -67,6 +72,7 @@ public class accountService {
         s.setAccountNum(accountNumber);
         s.setAccountBalance(0.0);
         s.setSortCode("900121");
+        s.setTransaction(transactions);
         accounts.add(s);
         //System.out.println("201 - resource created with path: /candidates/" + String.valueOf(s.getAccountID()));
         return s;
@@ -81,6 +87,7 @@ public class accountService {
         stu.setAccountNum(accountNumber);
         stu.setAccountBalance(0.0);
         stu.setSortCode("900121");
+        stu.setTransaction(transactions);
         accounts.add(stu);
         //System.out.println("201 - resource created with path: /candidates/" + String.valueOf(stu.getAccountID()));
         return stu;

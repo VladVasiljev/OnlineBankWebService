@@ -7,6 +7,9 @@ package com.mycompany.onlinebank.resources;
 
 import com.mycompany.onlinebank.services.accountService;
 import com.mycompany.onlinebank.model.Account;
+import com.mycompany.onlinebank.model.Customer;
+import com.mycompany.onlinebank.services.CustomerService;
+import com.mycompany.onlinebank.services.transactionService;
 import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -14,6 +17,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 /**
@@ -26,6 +30,10 @@ import javax.ws.rs.core.MediaType;
 public class accountResource {
 
     accountService accountservice = new accountService();
+    CustomerService service = new CustomerService();
+    transactionService transaction = new transactionService();
+
+    List<Customer> list = service.getList();
 
     //Getting Accounts by ID
     @GET
@@ -56,7 +64,7 @@ public class accountResource {
     //Usage POST http://127.0.0.1:49000/api/account/createSavingsAccount
     @POST
     @Path("/createSavingsAccount")
-    @Consumes({MediaType.APPLICATION_JSON})
+    @Consumes({MediaType.APPLICATION_JSON}) 
     @Produces({MediaType.APPLICATION_JSON})
     public Account addSavingsAccount(Account s) {
         return accountservice.addSavingsAccount(s);
@@ -72,7 +80,11 @@ public class accountResource {
         return accountservice.addSavingsAccount(stu);
     }
     
-    
+   @GET
+   @Path("/{flight}/passengers/{passport}")
+   public Account getFlight(@PathParam("flight") int id, @PathParam("passport") String passportNo) {
+       return accountservice.getPassengerInFlight(id, passportNo);
+   }
 
 //   @GET
 //   @Path("/Customer/{customerID}")

@@ -5,6 +5,7 @@
  */
 package com.mycompany.onlinebank.model;
 
+import java.util.List;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
@@ -15,17 +16,19 @@ public class Account {
         private int accountNum;
         private double accountBalance;
         private String sortCode;
+        private List<Transaction> transaction;
         
 
 	public Account() {
 	}
 
-	public Account(int accountID, String accountType, int accountNum, double accountBalance,String sortCode) {
+	public Account(int accountID, String accountType, int accountNum, double accountBalance,String sortCode,List<Transaction> transaction) {
 		this.accountID = accountID;
 		this.accountType = accountType;
                 this.accountNum = accountNum;
                 this.accountBalance = accountBalance;
                 this.sortCode = sortCode;
+                this.transaction = transaction;
 	}
 
     public int getAccountNum() {
@@ -69,5 +72,13 @@ public class Account {
 	public void setAccountType(String accountType) {
 		this.accountType = accountType;
 	}
+
+    public List<Transaction> getTransaction() {
+        return transaction;
+    }
+
+    public void setTransaction(List<Transaction> transaction) {
+        this.transaction = transaction;
+    }
 
 }
