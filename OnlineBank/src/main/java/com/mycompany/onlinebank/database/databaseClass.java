@@ -7,6 +7,7 @@ package com.mycompany.onlinebank.database;
 
 import com.mycompany.onlinebank.model.Account;
 import com.mycompany.onlinebank.model.Customer;
+import com.mycompany.onlinebank.model.Transaction;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,6 +18,7 @@ import java.util.Map;
 public class databaseClass {
      private static Map<Long, Account> accounts = new HashMap<>();
      private static Map<Long, Customer> customers = new HashMap<>();
+
 
 
     public static Map<Long, Account> getAccounts() {

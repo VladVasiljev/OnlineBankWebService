@@ -23,7 +23,7 @@ public class accountService {
     //public static List<Account> accounts = new ArrayList<>();
     public static boolean init = true;
 
-    CustomerService service = new CustomerService();
+    customerService service = new customerService();
     transactionService transaction = new transactionService();
     // accountService accountservice = new accountService();
 

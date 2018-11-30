@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class CustomerService {
+public class customerService {
 
     public static List<Customer> list = new ArrayList<>();
     public static List<Account> accounts = new ArrayList<>();
@@ -25,7 +25,7 @@ public class CustomerService {
         return accounts;
     }
 
-    public CustomerService() {
+    public customerService() {
         if (init) {
 
 //            Customer c1 = new Customer(1, "Paul Kinsella", "pkinsella@gmail.com", "Dublin", "12345", accounts);

@@ -35,11 +35,18 @@ public class transactionResource {
 //        return transactionService.getLodgement(accountBalance);
 //    }
     @PUT
-    @Path("/lodgement/{accountID}")
+    @Path("/lodgement/{accountID}/{amount}")
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
-    public  Account makeLodgement(@PathParam("accountID") int id,Account lodgement) {
+    public  Account makeLodgement(@PathParam("accountID") int id,@PathParam("amount") int amount,Account lodgement) {
         lodgement.setAccountID(id);
+//        double balance = lodgement.getAccountBalance();
+//        System.out.println(balance);
+        double balance = lodgement.getAccountBalance();
+        System.out.println(balance);
+        lodgement.setAccountBalance(balance + amount);
+//        lodgement.getAccountBalance();
+//        lodgement.setAccountBalance();
         return transactionservice.makeLodgement(lodgement);
     }
 

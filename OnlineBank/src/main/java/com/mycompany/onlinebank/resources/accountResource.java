@@ -8,9 +8,12 @@ package com.mycompany.onlinebank.resources;
 import com.mycompany.onlinebank.services.accountService;
 import com.mycompany.onlinebank.model.Account;
 import com.mycompany.onlinebank.model.Customer;
-import com.mycompany.onlinebank.services.CustomerService;
+import com.mycompany.onlinebank.model.Transaction;
+import com.mycompany.onlinebank.services.customerService;
 import com.mycompany.onlinebank.services.transactionService;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -30,7 +33,7 @@ import javax.ws.rs.core.MediaType;
 public class accountResource {
 
     accountService accountservice = new accountService();
-    CustomerService service = new CustomerService();
+    customerService service = new customerService();
     transactionService transaction = new transactionService();
 
     List<Customer> list = service.getList();
@@ -79,12 +82,6 @@ public class accountResource {
     public Account addStudentAccount(Account stu) {
         return accountservice.addSavingsAccount(stu);
     }
-    
-   @GET
-   @Path("/{flight}/passengers/{passport}")
-   public Account getFlight(@PathParam("flight") int id, @PathParam("passport") String passportNo) {
-       return accountservice.getPassengerInFlight(id, passportNo);
-   }
 
 //   @GET
 //   @Path("/Customer/{customerID}")

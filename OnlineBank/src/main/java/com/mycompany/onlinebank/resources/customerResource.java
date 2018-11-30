@@ -7,7 +7,7 @@ package com.mycompany.onlinebank.resources;
 
 import com.mycompany.onlinebank.model.Account;
 import com.mycompany.onlinebank.model.Customer;
-import com.mycompany.onlinebank.services.CustomerService;
+import com.mycompany.onlinebank.services.customerService;
 import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -27,9 +27,9 @@ import javax.ws.rs.QueryParam;
 //@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-public class CustomerResource {
+public class customerResource {
 
-    CustomerService CustomerService = new CustomerService();
+    customerService CustomerService = new customerService();
 
     @GET
     @Path("/{customerID}")
@@ -45,7 +45,7 @@ public class CustomerResource {
 
 //	@POST
 //	public Customer postCustomer(Customer c) {
-//		return CustomerService.createCustomer(c);
+//		return customerService.createCustomer(c);
 //	}
     @GET
 
