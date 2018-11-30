@@ -48,7 +48,9 @@ public class transactionService {
         }
         //return t;
     }
-
+    
+    
+    //Method that allows us to make a lodgement
     public  Account makeLodgement(Account lodgement ) {
         if(lodgement.getAccountID() <=0){
             return null;

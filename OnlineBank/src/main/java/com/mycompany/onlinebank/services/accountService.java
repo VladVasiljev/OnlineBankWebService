@@ -92,6 +92,19 @@ public class accountService {
         //System.out.println("201 - resource created with path: /candidates/" + String.valueOf(stu.getAccountID()));
         return stu;
     }
+    
+    
+    public List<Account> getSearchMessages(int accountNumber) {
+        List<Account> matcheslist = new ArrayList<>();
+        
+        for (Account q: getAllAccounts()) {
+            if ((q.getAccountNum()== accountNumber)) {
+                   
+               matcheslist.add(q);
+        }
+            }
+        return matcheslist;
+    }
 
 //    public Customer getCustoemrByID(int id) {
 //        return list.get(id - 1);

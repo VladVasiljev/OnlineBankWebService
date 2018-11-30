@@ -7,7 +7,6 @@ package com.mycompany.onlinebank.database;
 
 import com.mycompany.onlinebank.model.Account;
 import com.mycompany.onlinebank.model.Customer;
-import com.mycompany.onlinebank.model.Transaction;
 import java.util.HashMap;
 import java.util.Map;
 

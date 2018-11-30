@@ -34,6 +34,8 @@ public class transactionResource {
 //    public Account getLodgement(@PathParam("newLodgement") double accountBalance) {
 //        return transactionService.getLodgement(accountBalance);
 //    }
+    //Allows us to make a lodgement to a accounts
+    //Usage PUT http://127.0.0.1:49000/api/transaction/lodgement/1/555
     @PUT
     @Path("/lodgement/{accountID}/{amount}")
     @Consumes({MediaType.APPLICATION_JSON})

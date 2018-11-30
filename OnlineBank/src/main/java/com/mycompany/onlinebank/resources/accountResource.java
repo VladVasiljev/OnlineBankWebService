@@ -8,12 +8,9 @@ package com.mycompany.onlinebank.resources;
 import com.mycompany.onlinebank.services.accountService;
 import com.mycompany.onlinebank.model.Account;
 import com.mycompany.onlinebank.model.Customer;
-import com.mycompany.onlinebank.model.Transaction;
 import com.mycompany.onlinebank.services.customerService;
 import com.mycompany.onlinebank.services.transactionService;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -81,6 +78,17 @@ public class accountResource {
     @Produces({MediaType.APPLICATION_JSON})
     public Account addStudentAccount(Account stu) {
         return accountservice.addSavingsAccount(stu);
+    }
+    
+    //Allows us to get account balance by searching by accountNumber
+    //Usage GET http://127.0.0.1:49000/api/account/checkBalance?accountNumber=718683139
+    @GET
+    @Path("/checkBalance")
+    public List<Account> getFilteredMessages(@QueryParam("accountNumber") int accountNumber) {
+        if (accountNumber >= 0) {
+                     return accountservice.getSearchMessages(accountNumber);
+        }
+        return accountservice.getAllAccounts();
     }
 
 //   @GET
