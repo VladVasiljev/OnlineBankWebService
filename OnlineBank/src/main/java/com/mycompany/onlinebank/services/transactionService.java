@@ -106,4 +106,23 @@ public class transactionService {
         }
         return lodgement;
     }
+    
+    
+    
+    
+    public  Account makeWithdrawal(Account withdrawal ) {
+        if(withdrawal.getAccountID() <=0){
+            return null;
+        }
+        
+        if(withdrawal.getAccountID() == withdrawal.getAccountID()){
+        Transaction t1 = new Transaction("Debited", "Money Withdrawal ", accounts.get(0).getAccountBalance());
+        withdrawal.setTransaction(transaction);
+        transaction.add(t1);
+
+          accounts.set(0, withdrawal);
+        }
+        return withdrawal;
+    }
+    
 }

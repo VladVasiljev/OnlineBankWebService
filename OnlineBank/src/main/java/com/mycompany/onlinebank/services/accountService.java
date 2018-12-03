@@ -94,7 +94,7 @@ public class accountService {
     }
     
     
-    public List<Account> getSearchMessages(int accountNumber) {
+    public List<Account> getAccountBalance(int accountNumber) {
         List<Account> matcheslist = new ArrayList<>();
         
         for (Account q: getAllAccounts()) {
@@ -105,6 +105,10 @@ public class accountService {
             }
         return matcheslist;
     }
+    
+    
+     
+    
 
 //    public Customer getCustoemrByID(int id) {
 //        return list.get(id - 1);

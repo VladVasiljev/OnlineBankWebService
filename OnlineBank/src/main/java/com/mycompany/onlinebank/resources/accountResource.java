@@ -84,9 +84,9 @@ public class accountResource {
     //Usage GET http://127.0.0.1:49000/api/account/checkBalance?accountNumber=718683139
     @GET
     @Path("/checkBalance")
-    public List<Account> getFilteredMessages(@QueryParam("accountNumber") int accountNumber) {
+    public List<Account> getAccountBalance(@QueryParam("accountNumber") int accountNumber) {
         if (accountNumber >= 0) {
-                     return accountservice.getSearchMessages(accountNumber);
+                     return accountservice.getAccountBalance(accountNumber);
         }
         return accountservice.getAllAccounts();
     }

@@ -9,7 +9,6 @@ import com.mycompany.onlinebank.model.Account;
 import com.mycompany.onlinebank.services.accountService;
 import com.mycompany.onlinebank.services.transactionService;
 import javax.ws.rs.Consumes;
-import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -27,6 +26,7 @@ public class transactionResource {
 
     transactionService transactionservice = new transactionService();
     accountService accountservice = new accountService();
+    
 
 //      @GET
 //    @Path("/{newLodgement}")
@@ -50,6 +50,31 @@ public class transactionResource {
 //        lodgement.getAccountBalance();
 //        lodgement.setAccountBalance();
         return transactionservice.makeLodgement(lodgement);
+    }
+    
+    
+     @PUT
+    @Path("/withdrawal/{accountID}/{amount}")
+    @Consumes({MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON})
+    public  Account makeWithdrawal(@PathParam("accountID") int id,@PathParam("amount") double amount,Account withdrawal) {
+        withdrawal.setAccountID(id);
+//        double balance = lodgement.getAccountBalance();
+//        System.out.println(balance);
+        for(Account account: accountservice.getAllAccounts()) { 
+        if(account.getAccountID() == id) { 
+       //found it!
+            System.out.println(account.getAccountID());
+            double balance = withdrawal.getAccountBalance();
+            System.out.println(balance);
+        System.out.println(balance);
+        double finalValue = balance - amount;
+        withdrawal.setAccountBalance(finalValue);
+           }
+}
+//        lodgement.getAccountBalance();
+//        lodgement.setAccountBalance();
+        return transactionservice.makeWithdrawal(withdrawal);
     }
 
 }
