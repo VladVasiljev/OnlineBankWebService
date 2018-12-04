@@ -1,10 +1,154 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Start Page</title>
+        <style>
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #0084AF;
+}
+* 
+{
+    box-sizing: border-box
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #0084AF;
+    color: white;
+    padding: 14px 20px;
+    margin-left: 25%;
+    margin-right: 25%;
+    border: none;
+    cursor: pointer;
+    opacity: 0.9;
+}
+img{
+    border-radius:15px;
+}
+
+button:hover {
+    opacity:1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    padding: 14px 20px;
+    background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add padding to container elements */
+.container {
+    padding: 16px;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top:10%;
+    margin-bottom:10%;
+    background-color: white;
+    border-radius:10%;
+    
+}
+
+/*.form-con {
+    display:inline-block;
+}*/
+
+
+/* Clear floats */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+    .cancelbtn, .signupbtn {
+       width: 100%;
+    }
+}
+</style>
+        <title>Create Customer</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body>
-        <h1>Test Page</h1>
+        <div class="container">
+            <div class="form-con">
+       
+         <center>
+             <img src="images/bankLogo.PNG"  alt="bankLogo" />
+        </center>
+        
+        <form id="customerForm" action="http://127.0.0.1:49000/api/customers/createCustomer" method="POST">
+  
+    <h1>Sign Up</h1>
+    <p>Use the form below to sign up for an account</p>
+    
+    <hr>
+
+    <label for="fname"><b>First Name</b></label>
+    <input type="text" placeholder="Enter Email" name="email" required>
+    
+    <label for="lname"><b>Last Name</b></label>
+    <input type="text" placeholder="Last Name" name="email" required>
+
+    <label for="address"><b>Address</b></label>
+    <input type="text" placeholder="Address" name="address" required>
+
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Email" name="email" required>
+    
+    <label for="pin"><b>Pin</b></label>
+    <input type="text" placeholder="Pin" name="pin" required>
+    
+   
+    
+    <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+    <div class="clearfix">
+        <center><button type="submit" class="signupbtn">Create account</button></center>
+    </div>
+        </form>
+        </div>
+        </div>
+        
+        <script type="text/javascript">
+            var formData = JSON.stringify($("#customerForm").serializeArray());
+            var url = "http://127.0.0.1:49000/api/customers/createCustomer",
+                    $;ajax({
+                        type:"POST",
+                        data: formData,
+                        url = "http://127.0.0.1:49000/api/customers/createCustomer",
+                        success: function(){},
+                        dataType: "json",
+                        contentType:"application/json"
+                
+                    });
+            </script>
     </body>
 </html>

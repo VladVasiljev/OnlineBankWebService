@@ -70,7 +70,7 @@ button:hover {
     margin-top:10%;
     margin-bottom:10%;
     background-color: white;
-    border-radius:10%;
+    border-radius:5%;
     
 }
 
@@ -93,7 +93,7 @@ button:hover {
     }
 }
 </style>
-        <title>Create Customer</title>
+        <title>Account Details</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body>
@@ -106,33 +106,34 @@ button:hover {
         
         <form id="customerForm" action="http://127.0.0.1:49000/api/customers/createCustomer" method="POST">
   
-    <h1>Sign Up</h1>
-    <p>Use the form below to sign up for an account</p>
+    <h1>Account Details</h1>
+    <p>Below you will find the details for all accounts belonging to a customer</p>
     
     <hr>
 
-    <label for="fname"><b>First Name</b></label>
-    <input type="text" placeholder="Enter Email" name="email" required>
+    <label for="fname"><b>Account Number</b></label>
+    <input type="text"  name="accountNumber" required>
+    <input type="text"  name="accountNumber2" required>
+    <input type="text"  name="accountNumber3" required>
     
-    <label for="lname"><b>Last Name</b></label>
-    <input type="text" placeholder="Last Name" name="email" required>
+    <label for="lname"><b>Account Type</b></label>
+    <input type="text" name="accountType1" required>
+    <input type="text" name="accountType2" required>
+    <input type="text" name="accountType3" required>
 
-    <label for="address"><b>Address</b></label>
-    <input type="text" placeholder="Address" name="address" required>
+    <label for="address"><b>Balance</b></label>
+    <input type="text"  name="balance1" required>
+    <input type="text"  name="balance2" required>
+    <input type="text"  name="balance3" required>
 
-    <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Email" name="email" required>
     
-    <label for="pin"><b>Pin</b></label>
-    <input type="text" placeholder="Pin" name="pin" required>
     
    
     
-    <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
-
-    <div class="clearfix">
-        <center><button type="submit" class="signupbtn">Create account</button></center>
-    </div>
+    <a href ="http://127.0.0.1:49000/newAccount.html">New Account</a>
+    <a href ="#">Withdraw</a>
+    <a href ="#">Lodgement</a>
+    <a href ="#">Transfer</a>
         </form>
         </div>
         </div>

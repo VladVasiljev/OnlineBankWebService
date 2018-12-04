@@ -10,6 +10,9 @@ body {
 {
     box-sizing: border-box
 }
+a:link{
+    color:blue;
+}
 
 /* Full-width input fields */
 input[type=text], input[type=password] {
@@ -70,7 +73,7 @@ button:hover {
     margin-top:10%;
     margin-bottom:10%;
     background-color: white;
-    border-radius:10%;
+    border-radius:5%;
     
 }
 
@@ -93,7 +96,7 @@ button:hover {
     }
 }
 </style>
-        <title>Create Customer</title>
+        <title>Create Account</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body>
@@ -104,46 +107,37 @@ button:hover {
              <img src="images/bankLogo.PNG"  alt="bankLogo" />
         </center>
         
-        <form id="customerForm" action="http://127.0.0.1:49000/api/customers/createCustomer" method="POST">
+        <form id="customerForm" action="http://127.0.0.1:49000/api/account/createCurrentAccount" method="POST">
   
-    <h1>Sign Up</h1>
-    <p>Use the form below to sign up for an account</p>
+    <h1>Create Account</h1>
+    <p>Please select an account type from the options below</p>
     
     <hr>
 
-    <label for="fname"><b>First Name</b></label>
-    <input type="text" placeholder="Enter Email" name="email" required>
+    <select>
+  <option value="currentAccount">Current Account</option>
+  <option value="savings">Savings account</option>
+  <option value="studentAccount">Student Account</option>
+ 
+</select>
     
-    <label for="lname"><b>Last Name</b></label>
-    <input type="text" placeholder="Last Name" name="email" required>
+    
 
-    <label for="address"><b>Address</b></label>
-    <input type="text" placeholder="Address" name="address" required>
-
-    <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Email" name="email" required>
-    
-    <label for="pin"><b>Pin</b></label>
-    <input type="text" placeholder="Pin" name="pin" required>
-    
    
+        <center><button type="submit" class="signupbtn">Add New Account</button></center>
+        <a href ="http://127.0.0.1:49000/accountDetails.html">Home</a>
     
-    <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
-
-    <div class="clearfix">
-        <center><button type="submit" class="signupbtn">Create account</button></center>
-    </div>
         </form>
         </div>
         </div>
         
         <script type="text/javascript">
             var formData = JSON.stringify($("#customerForm").serializeArray());
-            var url = "http://127.0.0.1:49000/api/customers/createCustomer",
+            var url = "http://127.0.0.1:49000/api/account/createCurrentAccount",
                     $;ajax({
                         type:"POST",
                         data: formData,
-                        url = "http://127.0.0.1:49000/api/customers/createCustomer",
+                        url = "http://127.0.0.1:49000/api/account/createCurrentAccount",
                         success: function(){},
                         dataType: "json",
                         contentType:"application/json"
