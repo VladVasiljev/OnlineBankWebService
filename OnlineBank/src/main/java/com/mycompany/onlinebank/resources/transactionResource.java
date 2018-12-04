@@ -7,7 +7,9 @@ package com.mycompany.onlinebank.resources;
 
 import com.mycompany.onlinebank.model.Account;
 import com.mycompany.onlinebank.services.accountService;
+import com.mycompany.onlinebank.services.customerService;
 import com.mycompany.onlinebank.services.transactionService;
+import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
@@ -26,7 +28,8 @@ public class transactionResource {
 
     transactionService transactionservice = new transactionService();
     accountService accountservice = new accountService();
-    
+    customerService service = new customerService();
+    List<Account> accounts = service.getaccounts();
 
 //      @GET
 //    @Path("/{newLodgement}")
@@ -40,38 +43,42 @@ public class transactionResource {
     @Path("/lodgement/{accountID}/{amount}")
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
-    public  Account makeLodgement(@PathParam("accountID") int id,@PathParam("amount") int amount,Account lodgement) {
+    public Account makeLodgement(@PathParam("accountID") int id, @PathParam("amount") int amount, Account lodgement) {
         lodgement.setAccountID(id);
 //        double balance = lodgement.getAccountBalance();
 //        System.out.println(balance);
-        double balance = lodgement.getAccountBalance();
-        System.out.println(balance);
-        lodgement.setAccountBalance(balance + amount);
+
+        for (Account account : accounts) {
+            if (account.getAccountID() == id) {
+                double balance = account.getAccountBalance();
+                System.out.println(balance);
+                lodgement.setAccountBalance(balance + amount);
+                //found it!
+            }
+        }
+
 //        lodgement.getAccountBalance();
 //        lodgement.setAccountBalance();
         return transactionservice.makeLodgement(lodgement);
     }
-    
-    
-     @PUT
+
+    @PUT
     @Path("/withdrawal/{accountID}/{amount}")
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
-    public  Account makeWithdrawal(@PathParam("accountID") int id,@PathParam("amount") double amount,Account withdrawal) {
+    public Account makeWithdrawal(@PathParam("accountID") int id, @PathParam("amount") double amount, Account withdrawal) {
         withdrawal.setAccountID(id);
 //        double balance = lodgement.getAccountBalance();
 //        System.out.println(balance);
-        for(Account account: accountservice.getAllAccounts()) { 
-        if(account.getAccountID() == id) { 
-       //found it!
-            System.out.println(account.getAccountID());
-            double balance = withdrawal.getAccountBalance();
-            System.out.println(balance);
-        System.out.println(balance);
-        double finalValue = balance - amount;
-        withdrawal.setAccountBalance(finalValue);
-           }
-}
+        for (Account account : accounts) {
+            if (account.getAccountID() == id) {
+                System.out.println(account.getAccountID());
+                double balance = account.getAccountBalance();
+                System.out.println(balance);
+                double finalValue = balance - amount;
+                withdrawal.setAccountBalance(finalValue);
+            }
+        }
 //        lodgement.getAccountBalance();
 //        lodgement.setAccountBalance();
         return transactionservice.makeWithdrawal(withdrawal);
