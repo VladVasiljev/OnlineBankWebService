@@ -9,9 +9,7 @@ import com.mycompany.onlinebank.model.Account;
 import com.mycompany.onlinebank.model.Transaction;
 import static com.mycompany.onlinebank.services.transactionService.transaction;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  *
@@ -60,7 +58,7 @@ public class transactionService {
 //            System.out.println(lodgement.getAccountID());
 //            System.out.println(lodgement.getAccountBalance());
 //        double accountBalance = lodgement.getAccountBalance();
-        Transaction t1 = new Transaction("Credited", "Money Lodgment", accounts.get(0).getAccountBalance());
+        Transaction t1 = new Transaction("Credited", "Money Lodgment", lodgement.getAccountBalance());
         lodgement.setTransaction(transaction);
         transaction.add(t1);
 
@@ -116,7 +114,7 @@ public class transactionService {
         }
         
         if(withdrawal.getAccountID() == withdrawal.getAccountID()){
-        Transaction t1 = new Transaction("Debited", "Money Withdrawal ", accounts.get(0).getAccountBalance());
+        Transaction t1 = new Transaction("Debited", "Money Withdrawal ", withdrawal.getAccountBalance());
         withdrawal.setTransaction(transaction);
         transaction.add(t1);
 
