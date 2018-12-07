@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
+           <script src="http://code.jquery.com/jquery-latest.min.js"
+        type="text/javascript"></script>
         <style>
 body {
     font-family: Arial, Helvetica, sans-serif;
@@ -132,12 +134,12 @@ button:hover {
         </div>
         
         <script type="text/javascript">
-            var formData = JSON.stringify($("#customerForm").serializeArray());
-            var url = "http://127.0.0.1:49000/api/account/createCurrentAccount",
-                    $;ajax({
+            var formData = JSON.stringify($("#customerForm"));
+            
+                    $.ajax({
                         type:"POST",
                         data: formData,
-                        url = "http://127.0.0.1:49000/api/account/createCurrentAccount",
+                        url:  "http://127.0.0.1:49000/api/account/createSavingsAccount",
                         success: function(){},
                         dataType: "json",
                         contentType:"application/json"
