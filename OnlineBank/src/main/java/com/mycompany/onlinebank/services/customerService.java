@@ -9,7 +9,9 @@ import com.mycompany.onlinebank.model.Account;
 import com.mycompany.onlinebank.model.Customer;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
 public class customerService {
 
@@ -108,7 +110,6 @@ public class customerService {
 //    }
     
     //Default values set,adds them to Account object
-    //Added by Vladislavs Vasiljevs
     public Customer addCustomerAccount(Customer c) {
         c.setCustomerID(list.size() + 1);
         c.setAccounts(accounts);

@@ -19,8 +19,7 @@ public class transactionService {
 
     public static List<Transaction> transaction = new ArrayList<>();
     customerService service = new customerService();
-     List<Account> accounts = service.getaccounts();
-    
+    List<Account> accounts = service.getaccounts();
 
     public List<Transaction> getTransactions() {
         return transaction;
@@ -42,25 +41,24 @@ public class transactionService {
 //            transaction.add(t2);
 //
             init = false;
-            
+
         }
         //return t;
     }
-    
-    
+
     //Method that allows us to make a lodgement
-    public  Account makeLodgement(Account lodgement ) {
-        if(lodgement.getAccountID() <=0){
+    public Account makeLodgement(Account lodgement) {
+        if (lodgement.getAccountID() <= 0) {
             return null;
         }
-        
-        if(lodgement.getAccountID() == lodgement.getAccountID()){
+
+        if (lodgement.getAccountID() == lodgement.getAccountID()) {
 //            System.out.println(lodgement.getAccountID());
 //            System.out.println(lodgement.getAccountBalance());
 //        double accountBalance = lodgement.getAccountBalance();
-        Transaction t1 = new Transaction("Credited", "Money Lodgment", lodgement.getAccountBalance());
-        lodgement.setTransaction(transaction);
-        transaction.add(t1);
+            Transaction t1 = new Transaction("Credited", "Money Lodgment", lodgement.getAccountBalance());
+            lodgement.setTransaction(transaction);
+            transaction.add(t1);
 
 //        int account = lodgement.getAccountNum();
 //        String accountType = lodgement.getAccountType();
@@ -69,7 +67,6 @@ public class transactionService {
 //        int id = lodgement.getAccountID();
 //        System.out.println(id);
 //        accounts.get(0).setSortCode(sort);
-        
 //        System.out.println(accountBalance+"    " + account+"   " + accountType);
 //        lodgement.setAccountBalance(accountBalance);
 //        lodgement.setAccountNum(account);
@@ -77,15 +74,14 @@ public class transactionService {
 //        lodgement.setSortCode(sort);
 //        accounts.get(0);
 //        lodgement.setAccountBalance(accountBalance);
-          accounts.set(0, lodgement);
-        
+            accounts.set(0, lodgement);
+
 //        
 //        lodgement.setAccountNum(account);
 //        lodgement.getAccountType();
 //        lodgement.getSortCode();
-        
-       // accounts.add(lodgement.getAccountID(),lodgement);
-       //accounts.add(lodgement);
+            // accounts.add(lodgement.getAccountID(),lodgement);
+            //accounts.add(lodgement);
 //        //double accountBalance = lodgement.getAccountBalance();
 //        //userBalance = 0.0;
 //        //lodgement.setAccountBalance(userBalance + accountBalance);
@@ -100,27 +96,64 @@ public class transactionService {
 //        lodgement.getTransaction();
 //        //lodgement.getAccountBalance();
 //        accounts.add(lodgement);
-        //System.out.println("201 - resource created with path: /candidates/" + String.valueOf(s.getAccountID()));
+            //System.out.println("201 - resource created with path: /candidates/" + String.valueOf(s.getAccountID()));
         }
         return lodgement;
     }
-    
-    
-    
-    
-    public  Account makeWithdrawal(Account withdrawal ) {
-        if(withdrawal.getAccountID() <=0){
+
+    public Account makeWithdrawal(Account withdrawal) {
+        if (withdrawal.getAccountID() <= 0) {
             return null;
         }
-        
-        if(withdrawal.getAccountID() == withdrawal.getAccountID()){
-        Transaction t1 = new Transaction("Debited", "Money Withdrawal ", withdrawal.getAccountBalance());
-        withdrawal.setTransaction(transaction);
-        transaction.add(t1);
 
-          accounts.set(0, withdrawal);
+        if (withdrawal.getAccountID() == withdrawal.getAccountID()) {
+            Transaction t1 = new Transaction("Debited", "Money Withdrawal ", withdrawal.getAccountBalance());
+            withdrawal.setTransaction(transaction);
+            transaction.add(t1);
+
+            accounts.set(0, withdrawal);
         }
         return withdrawal;
     }
-    
+
+    public Account withdrawFrom() {
+        for (Account account : accounts) {
+            if (account.getAccountID() <= 0) {
+                return null;
+
+            }
+            if (account.getAccountID() == account.getAccountID()) {
+                Transaction t1 = new Transaction("Debited", "Transfer ", account.getAccountBalance());
+                account.setTransaction(transaction);
+                transaction.add(t1);
+
+                accounts.set(0, account);
+//          accounts.set(1, account);
+            }
+
+            return account;
+        }
+        return null;
+    }
+
+    public Account transferTo() {
+        for (Account account : accounts) {
+            if (account.getAccountID() <= 0) {
+                return null;
+
+            }
+            if (account.getAccountID() == account.getAccountID()) {
+                Transaction t2 = new Transaction("Credited", "Transfer ", account.getAccountBalance());
+                account.setTransaction(transaction);
+                transaction.add(t2);
+
+                accounts.set(1, account);
+//          accounts.set(1, account);
+            }
+
+            return account;
+        }
+        return null;
+    }
+
 }
