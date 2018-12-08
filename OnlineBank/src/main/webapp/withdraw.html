@@ -151,7 +151,7 @@ button:hover {
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body>
-                 <div class="topnav" id="myTopnav">
+        <div class="topnav" id="myTopnav">
   <a href="http://127.0.0.1:49000/index.html" class="active">New Customer</a>
   <a href="http://127.0.0.1:49000/transfer.html">Transfer</a>
   <a href="http://127.0.0.1:49000/lodgement.html">Lodgement</a>
@@ -171,8 +171,8 @@ button:hover {
         
         <form id="customerForm" action="http://127.0.0.1:49000/api/account/createCurrentAccount" method="POST">
   
-    <h1>Create Account</h1>
-    <p>Please select an account you  from the options below</p>
+    <h1>Withdraw</h1>
+    <p>Please select an account you want to withdraw money from</p>
     
     <hr>
 
@@ -181,12 +181,13 @@ button:hover {
   <option value="savings">Savings account</option>
   <option value="studentAccount">Student Account</option>
  
-</select>
+    </select><br><br>
+    <input type="number" placeholder="Amount" name="amount"><br><br>
     
     
 
    
-        <center><button type="submit" class="signupbtn">Add New Account</button></center>
+        <center><button type="submit" class="signupbtn">Withdraw Money</button></center>
         <a href ="http://127.0.0.1:49000/accountDetails.html">Home</a>
     
         </form>
@@ -199,7 +200,7 @@ button:hover {
                     $.ajax({
                         type:"POST",
                         data: formData,
-                        url:  "http://127.0.0.1:49000/api/account/createSavingsAccount",
+                        url:  "http://127.0.0.1:49000/api/account/withdraw",
                         success: function(){},
                         dataType: "json",
                         contentType:"application/json"
