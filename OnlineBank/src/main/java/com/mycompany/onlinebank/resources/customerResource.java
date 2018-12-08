@@ -66,7 +66,7 @@ public class customerResource {
     
     
     //Creates a Current account for the customer
-    //Usage POST http://127.0.0.1:49000/api/customer/createCustomerAccoun
+    //Usage POST http://127.0.0.1:49000/api/customer/createCustomerAccount
     @POST
     @Path("/createCustomerAccount")
     @Consumes({MediaType.APPLICATION_JSON})
