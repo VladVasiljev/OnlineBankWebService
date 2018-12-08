@@ -84,4 +84,55 @@ public class transactionResource {
         return transactionservice.makeWithdrawal(withdrawal);
     }
 
+    @PUT
+    @Path("/transfer/{accountIDa}/{accountIDb}/{amountToTake}")
+    @Consumes({MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON})
+    public Account transfer(@PathParam("accountIDa") int idA, @PathParam("accountIDb") int idB, @PathParam("amountToTake") double amount) {
+        for (Account account : accounts) {
+//            account.setAccountID(idA);
+//            account.setAccountID(idB);
+            if (account.getAccountID() == idA) {
+                double currentAmount = account.getAccountBalance();
+                System.out.println(currentAmount);
+                double totalAmountLeft = currentAmount - amount;
+                account.setAccountBalance(totalAmountLeft);
+            }    
+             return transactionservice.withdrawFrom();
+        }
+        
+        for (Account account : accounts) {
+            if (account.getAccountID() == idB) {
+                double getCurrentBalance = account.getAccountBalance();
+                System.out.println(getCurrentBalance);
+                double total = getCurrentBalance + amount;
+                account.setAccountBalance(total);
+            }
+            return transactionservice.transferTo();
+
+        }
+        return null;
+    }
+    
+        @PUT
+    @Path("/update/{accountID}")
+    @Consumes({MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON})
+    public Account updateAccount(@PathParam("accountID") int id) {
+                    
+        for (Account account : accounts) {
+            account.setAccountID(id);
+            if (account.getAccountID() == id) {
+                double getCurrentBalance = account.getAccountBalance();
+                //System.out.println(amount);
+                double total = getCurrentBalance;
+                account.setAccountBalance(total);
+    }
+        }
+            return transactionservice.transferTo();
+        }
+    
+            
 }
+        
+

@@ -1,0 +1,10 @@
+com\mycompany\onlinebank\model\Customer.class
+com\mycompany\onlinebank\model\Account.class
+com\mycompany\onlinebank\resources\customerResource.class
+com\mycompany\onlinebank\services\transactionService.class
+com\mycompany\onlinebank\database\databaseClass.class
+com\mycompany\onlinebank\resources\accountResource.class
+com\mycompany\onlinebank\services\accountService.class
+com\mycompany\onlinebank\model\Transaction.class
+com\mycompany\onlinebank\services\customerService.class
+com\mycompany\onlinebank\resources\transactionResource.class
