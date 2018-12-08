@@ -48,7 +48,6 @@ public class customerResource {
 //		return customerService.createCustomer(c);
 //	}
     @GET
-
     public List<Customer> getFilteredCustomers(
             @QueryParam("city") String city,
             @QueryParam("name") String name,
@@ -71,7 +70,7 @@ public class customerResource {
     @Path("/createCustomerAccount")
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
-    public Customer addCurrentAccount(Customer c) {
+    public Customer addCustomerAccount(Customer c) {
         return CustomerService.addCustomerAccount(c);
     }
     
