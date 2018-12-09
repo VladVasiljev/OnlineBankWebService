@@ -115,7 +115,7 @@ public class transactionService {
         }
         return withdrawal;
     }
-
+    //Taking money out from one account
     public Account withdrawFrom() {
         for (Account account : accounts) {
             if (account.getAccountID() <= 0) {
@@ -135,7 +135,7 @@ public class transactionService {
         }
         return null;
     }
-
+    //Making a transfer to the other account
     public Account transferTo() {
         for (Account account : accounts) {
             if (account.getAccountID() <= 0) {

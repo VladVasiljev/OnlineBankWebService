@@ -83,7 +83,7 @@ public class transactionResource {
 //        lodgement.setAccountBalance();
         return transactionservice.makeWithdrawal(withdrawal);
     }
-
+    //Making a transfer from one account to another
     @PUT
     @Path("/transfer/{accountIDa}/{accountIDb}/{amountToTake}")
     @Consumes({MediaType.APPLICATION_JSON})
@@ -113,26 +113,26 @@ public class transactionResource {
         }
         return null;
     }
-    
-        @PUT
-    @Path("/update/{accountID}")
-    @Consumes({MediaType.APPLICATION_JSON})
-    @Produces({MediaType.APPLICATION_JSON})
-    public Account updateAccount(@PathParam("accountID") int id) {
-                    
-        for (Account account : accounts) {
-            account.setAccountID(id);
-            if (account.getAccountID() == id) {
-                double getCurrentBalance = account.getAccountBalance();
-                //System.out.println(amount);
-                double total = getCurrentBalance;
-                account.setAccountBalance(total);
-    }
-        }
-            return transactionservice.transferTo();
-        }
-    
-            
+        
+//        @PUT
+//    @Path("/update/{accountID}")
+//    @Consumes({MediaType.APPLICATION_JSON})
+//    @Produces({MediaType.APPLICATION_JSON})
+//    public Account updateAccount(@PathParam("accountID") int id) {
+//                    
+//        for (Account account : accounts) {
+//            account.setAccountID(id);
+//            if (account.getAccountID() == id) {
+//                double getCurrentBalance = account.getAccountBalance();
+//                //System.out.println(amount);
+//                double total = getCurrentBalance;
+//                account.setAccountBalance(total);
+//    }
+//        }
+//            return transactionservice.transferTo();
+//        }
+//    
+//            
 }
         
 
